@@ -16,7 +16,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 .case{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:16px;overflow:hidden}
 .case-toggle{width:100%;display:flex;gap:14px;align-items:flex-start;background:none;border:0;color:var(--text);padding:16px;min-height:86px;text-align:left;cursor:pointer;font:inherit}
 .num{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:11px;background:#1f2f52;color:#b8ccff;font-weight:700;font-size:13px}
-.case p{margin:5px 0 0;line-height:1.45;flex:1} .chev{font-size:22px;color:var(--muted);transition:.2s;line-height:34px} .case.open .chev{transform:rotate(180deg)}
+.case p{margin:5px 0 0;line-height:1.45;flex:1}.auto-tag{display:inline-grid;place-items:center;flex:0 0 26px;width:26px;height:26px;margin-top:5px;border:1px solid #43df8d;border-radius:50%;color:#ecfff5;background:#168a50;box-shadow:0 0 0 3px rgba(67,223,141,.12);font-size:12px;font-weight:900} .chev{font-size:22px;color:var(--muted);transition:.2s;line-height:34px} .case.open .chev{transform:rotate(180deg)}
 .bdd{display:none;border-top:1px solid var(--border);padding:14px 18px 17px 68px;background:rgba(8,15,29,.35);font-size:14px;line-height:1.55}
 .case.open .bdd{display:block} .bdd div+div{margin-top:7px} .bdd b{color:#b8ccff;margin-right:5px}
 .hidden{display:none!important} .empty{display:none;color:var(--muted);padding:18px 4px} .empty.show{display:block} footer{margin-top:42px;text-align:center;font-size:13px}
@@ -28,7 +28,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 <input id="search" class="search" placeholder="Search in Get Candy V2...">
 <section id="get-candy" class="tab-panel active"><div class="section-head"><h2>Get Candy V2</h2><div class="count">63 scenarios</div></div><div class="grid"><article class="case" data-text="validate cinema selector cannot be dismissed without selecting a cinema">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">01</span><p>Validate cinema selector cannot be dismissed without selecting a cinema</p><span class="chev">⌄</span>
+<span class="num">01</span><p>Validate cinema selector cannot be dismissed without selecting a cinema</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is accessing the Candy Store</div>
@@ -37,7 +37,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate purchase candy as guest user">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">02</span><p>Validate purchase candy as guest user</p><span class="chev">⌄</span>
+<span class="num">02</span><p>Validate purchase candy as guest user</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is not authenticated</div>
@@ -46,7 +46,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate purchase candy as authenticated user">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">03</span><p>Validate purchase candy as authenticated user</p><span class="chev">⌄</span>
+<span class="num">03</span><p>Validate purchase candy as authenticated user</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is authenticated</div>
@@ -55,7 +55,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate persisted cinema and get-candy request after reload">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">04</span><p>Validate persisted cinema and get-candy request after reload</p><span class="chev">⌄</span>
+<span class="num">04</span><p>Validate persisted cinema and get-candy request after reload</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is accessing the Candy Store</div>
@@ -64,7 +64,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate navigation through all candy store categories">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">05</span><p>Validate navigation through all Candy Store categories</p><span class="chev">⌄</span>
+<span class="num">05</span><p>Validate navigation through all Candy Store categories</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the Candy Store catalog is loaded</div>
@@ -73,7 +73,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate if hamburger menu is redirecting to all categories">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">06</span><p>Validate if hamburger Menu is redirecting to all categories</p><span class="chev">⌄</span>
+<span class="num">06</span><p>Validate if hamburger Menu is redirecting to all categories</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the Candy Store catalog is loaded</div>
@@ -82,7 +82,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate direct url opens the correct candy category">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">07</span><p>Validate direct URL opens the correct Candy category</p><span class="chev">⌄</span>
+<span class="num">07</span><p>Validate direct URL opens the correct Candy category</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the Candy Store catalog is loaded</div>
@@ -91,7 +91,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate each api category maps to one candy content section">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">08</span><p>Validate each API category maps to one Candy content section</p><span class="chev">⌄</span>
+<span class="num">08</span><p>Validate each API category maps to one Candy content section</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the Candy Store catalog is loaded</div>
@@ -100,7 +100,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate scrolling keeps candy category state synchronized">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">09</span><p>Validate scrolling keeps Candy category state synchronized</p><span class="chev">⌄</span>
+<span class="num">09</span><p>Validate scrolling keeps Candy category state synchronized</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the Candy Store catalog is loaded</div>
@@ -109,7 +109,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate complete candy catalog contract against frontend">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">10</span><p>Validate complete Candy catalog contract against frontend</p><span class="chev">⌄</span>
+<span class="num">10</span><p>Validate complete Candy catalog contract against frontend</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on the Candy Store page</div>
@@ -118,7 +118,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate product images in catalog and cart summary">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">11</span><p>Validate product images in catalog and cart summary</p><span class="chev">⌄</span>
+<span class="num">11</span><p>Validate product images in catalog and cart summary</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on the Candy Store page</div>
@@ -127,7 +127,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate add item to cart and proceed to checkout">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">12</span><p>Validate add item to cart and proceed to checkout</p><span class="chev">⌄</span>
+<span class="num">12</span><p>Validate add item to cart and proceed to checkout</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the requested Candy product is available</div>
@@ -136,7 +136,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate added candy item highlights the product image">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">13</span><p>Validate added candy item highlights the product image</p><span class="chev">⌄</span>
+<span class="num">13</span><p>Validate added candy item highlights the product image</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on the Candy Store page</div>
@@ -145,7 +145,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate repeated product stays synchronized across candy categories">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">14</span><p>Validate repeated product stays synchronized across Candy categories</p><span class="chev">⌄</span>
+<span class="num">14</span><p>Validate repeated product stays synchronized across Candy categories</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the Candy Store catalog is loaded</div>
@@ -154,7 +154,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate product highlights update when multiple items are removed">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">15</span><p>Validate product highlights update when multiple items are removed</p><span class="chev">⌄</span>
+<span class="num">15</span><p>Validate product highlights update when multiple items are removed</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the relevant product is already in the cart</div>
@@ -163,7 +163,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate resumen drawer displays all the informations correctly">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">16</span><p>Validate resumen drawer displays all the informations correctly</p><span class="chev">⌄</span>
+<span class="num">16</span><p>Validate resumen drawer displays all the informations correctly</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has the required items in the purchase</div>
@@ -172,7 +172,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate checkout button displays correct total sum (item + service fee)">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">17</span><p>Validate checkout button displays correct total sum (Item + Service Fee)</p><span class="chev">⌄</span>
+<span class="num">17</span><p>Validate checkout button displays correct total sum (Item + Service Fee)</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has the required items in the purchase</div>
@@ -181,7 +181,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate candy total remains consistent from cart summary to checkout">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">18</span><p>Validate candy total remains consistent from cart summary to checkout</p><span class="chev">⌄</span>
+<span class="num">18</span><p>Validate candy total remains consistent from cart summary to checkout</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has the required items in the purchase</div>
@@ -190,7 +190,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate candy total after removing one item before checkout">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">19</span><p>Validate candy total after removing one item before checkout</p><span class="chev">⌄</span>
+<span class="num">19</span><p>Validate candy total after removing one item before checkout</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has the required items in the purchase</div>
@@ -199,7 +199,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate double click on add product does not duplicate item">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">20</span><p>Validate double click on add product does not duplicate item</p><span class="chev">⌄</span>
+<span class="num">20</span><p>Validate double click on add product does not duplicate item</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on the Candy Store page</div>
@@ -208,7 +208,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate rapid increase and decrease clicks keep cart synchronized">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">21</span><p>Validate rapid increase and decrease clicks keep cart synchronized</p><span class="chev">⌄</span>
+<span class="num">21</span><p>Validate rapid increase and decrease clicks keep cart synchronized</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on the Candy Store page</div>
@@ -217,7 +217,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate increasing item quantity updates total price">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">22</span><p>Validate increasing item quantity updates total price</p><span class="chev">⌄</span>
+<span class="num">22</span><p>Validate increasing item quantity updates total price</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a Candy product is available in the cart</div>
@@ -226,7 +226,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate decreasing item quantity updates total price">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">23</span><p>Validate decreasing item quantity updates total price</p><span class="chev">⌄</span>
+<span class="num">23</span><p>Validate decreasing item quantity updates total price</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a Candy product is available in the cart</div>
@@ -235,7 +235,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate cart total after removing and re-adding candy item twice">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">24</span><p>Validate cart total after removing and re-adding candy item twice</p><span class="chev">⌄</span>
+<span class="num">24</span><p>Validate cart total after removing and re-adding candy item twice</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has the required items in the purchase</div>
@@ -244,7 +244,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate item quantity counter increments accurately - increase and decrease">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">25</span><p>Validate item quantity counter increments accurately - increase and decrease</p><span class="chev">⌄</span>
+<span class="num">25</span><p>Validate item quantity counter increments accurately - increase and decrease</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a Candy product is available in the cart</div>
@@ -253,7 +253,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate cart and summary persist after page reload">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">26</span><p>Validate cart and summary persist after page reload</p><span class="chev">⌄</span>
+<span class="num">26</span><p>Validate cart and summary persist after page reload</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has an active Candy purchase</div>
@@ -262,7 +262,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate per-item maximum quantity limit - 10 units">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">27</span><p>Validate per-item maximum quantity limit - 10 units</p><span class="chev">⌄</span>
+<span class="num">27</span><p>Validate per-item maximum quantity limit - 10 units</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a Candy product is available in the cart</div>
@@ -271,7 +271,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate global cart limit with 10 different products">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">28</span><p>Validate global cart limit with 10 different products</p><span class="chev">⌄</span>
+<span class="num">28</span><p>Validate global cart limit with 10 different products</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a Candy product is available in the cart</div>
@@ -280,7 +280,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate global cart limit - 10 items total">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">29</span><p>Validate global cart limit - 10 items total</p><span class="chev">⌄</span>
+<span class="num">29</span><p>Validate global cart limit - 10 items total</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a Candy product is available in the cart</div>
@@ -289,7 +289,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate &#x27;see more&#x27; functionality for products">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">30</span><p>Validate &#x27;See More&#x27; functionality for products</p><span class="chev">⌄</span>
+<span class="num">30</span><p>Validate &#x27;See More&#x27; functionality for products</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on the Candy Store page</div>
@@ -298,7 +298,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate required options to product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">31</span><p>Validate required options to product</p><span class="chev">⌄</span>
+<span class="num">31</span><p>Validate required options to product</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a configurable Candy product is available</div>
@@ -307,7 +307,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate canceling product configuration keeps cart unchanged">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">32</span><p>Validate canceling product configuration keeps cart unchanged</p><span class="chev">⌄</span>
+<span class="num">32</span><p>Validate canceling product configuration keeps cart unchanged</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a configurable Candy product is available</div>
@@ -316,7 +316,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate combo item with multiple required options">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">33</span><p>Validate combo item with multiple required options</p><span class="chev">⌄</span>
+<span class="num">33</span><p>Validate combo item with multiple required options</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a configurable Candy product is available</div>
@@ -325,7 +325,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate add item with required options to cart">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">34</span><p>Validate add item with required options to cart</p><span class="chev">⌄</span>
+<span class="num">34</span><p>Validate add item with required options to cart</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a configurable Candy product is available</div>
@@ -334,7 +334,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate replacing cart item updates required option selection">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">35</span><p>Validate replacing cart item updates required option selection</p><span class="chev">⌄</span>
+<span class="num">35</span><p>Validate replacing cart item updates required option selection</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a configurable Candy product is available</div>
@@ -343,7 +343,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate add two itens with differente required options">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">36</span><p>Validate add two itens with differente required options</p><span class="chev">⌄</span>
+<span class="num">36</span><p>Validate add two itens with differente required options</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a configurable Candy product is available</div>
@@ -352,7 +352,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate browser back opens purchase cancellation modal">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">37</span><p>Validate browser back opens purchase cancellation modal</p><span class="chev">⌄</span>
+<span class="num">37</span><p>Validate browser back opens purchase cancellation modal</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has an active Candy purchase</div>
@@ -361,7 +361,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate order cancellation workflow">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">38</span><p>Validate order cancellation workflow</p><span class="chev">⌄</span>
+<span class="num">38</span><p>Validate order cancellation workflow</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user has an active Candy purchase</div>
@@ -370,7 +370,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate purchase interruption when removing all items from cart">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">39</span><p>Validate purchase interruption when removing all items from cart</p><span class="chev">⌄</span>
+<span class="num">39</span><p>Validate purchase interruption when removing all items from cart</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the relevant product is already in the cart</div>
@@ -379,7 +379,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate if main banner is visible">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">40</span><p>Validate if main banner is visible</p><span class="chev">⌄</span>
+<span class="num">40</span><p>Validate if main banner is visible</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on the Candy Store page</div>
@@ -388,7 +388,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate if &#x27;cine para retiro&#x27; functionality updates the cinema correctly">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">41</span><p>Validate if &#x27;Cine para Retiro&#x27; functionality updates the cinema correctly</p><span class="chev">⌄</span>
+<span class="num">41</span><p>Validate if &#x27;Cine para Retiro&#x27; functionality updates the cinema correctly</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is accessing the Candy Store</div>
@@ -595,7 +595,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article></div><div class="empty">No scenarios found in Get Candy V2.</div></section>
 <section id="last-minute" class="tab-panel"><div class="section-head"><h2>Last Minute</h2><div class="count">43 scenarios</div></div><div class="grid"><article class="case" data-text="validate checkout-promotions contract and eligible last minute products">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">01</span><p>Validate checkout-promotions contract and eligible Last Minute products</p><span class="chev">⌄</span>
+<span class="num">01</span><p>Validate checkout-promotions contract and eligible Last Minute products</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -604,7 +604,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate displaying at most four products in the last minute list">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">02</span><p>Validate displaying at most four products in the Last Minute list</p><span class="chev">⌄</span>
+<span class="num">02</span><p>Validate displaying at most four products in the Last Minute list</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -613,7 +613,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate collapsing and reopening the last minute component">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">03</span><p>Validate collapsing and reopening the Last Minute component</p><span class="chev">⌄</span>
+<span class="num">03</span><p>Validate collapsing and reopening the Last Minute component</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -622,7 +622,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate adding a last minute product that does not require configuration">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">04</span><p>Validate adding a Last Minute product that does not require configuration</p><span class="chev">⌄</span>
+<span class="num">04</span><p>Validate adding a Last Minute product that does not require configuration</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -631,7 +631,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate removing a last minute product from the product counter">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">05</span><p>Validate removing a Last Minute product from the product counter</p><span class="chev">⌄</span>
+<span class="num">05</span><p>Validate removing a Last Minute product from the product counter</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -640,7 +640,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate editing a last minute product quantity from the cart summary">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">06</span><p>Validate editing a Last Minute product quantity from the cart summary</p><span class="chev">⌄</span>
+<span class="num">06</span><p>Validate editing a Last Minute product quantity from the cart summary</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -649,7 +649,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate automatically removing a last minute product when its quantity reaches zero">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">07</span><p>Validate automatically removing a Last Minute product when its quantity reaches zero</p><span class="chev">⌄</span>
+<span class="num">07</span><p>Validate automatically removing a Last Minute product when its quantity reaches zero</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -658,7 +658,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate last minute values and calculations with a movie ticket and a last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">08</span><p>Validate Last Minute values and calculations with a movie ticket and a Last Minute product</p><span class="chev">⌄</span>
+<span class="num">08</span><p>Validate Last Minute values and calculations with a movie ticket and a Last Minute product</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -667,7 +667,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate adding, updating and removing a last minute product from the cart">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">09</span><p>Validate adding, updating and removing a Last Minute product from the cart</p><span class="chev">⌄</span>
+<span class="num">09</span><p>Validate adding, updating and removing a Last Minute product from the cart</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -676,7 +676,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate last minute product information tooltip">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">10</span><p>Validate Last Minute product information tooltip</p><span class="chev">⌄</span>
+<span class="num">10</span><p>Validate Last Minute product information tooltip</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -685,7 +685,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate adding a configurable last minute product through the concessions drawer">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">11</span><p>Validate adding a configurable Last Minute product through the Concessions drawer</p><span class="chev">⌄</span>
+<span class="num">11</span><p>Validate adding a configurable Last Minute product through the Concessions drawer</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -694,7 +694,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate the five-unit limit for a last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">12</span><p>Validate the five-unit limit for a Last Minute product</p><span class="chev">⌄</span>
+<span class="num">12</span><p>Validate the five-unit limit for a Last Minute product</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -703,7 +703,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate the ten-product limit for the last minute cart">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">13</span><p>Validate the ten-product limit for the Last Minute cart</p><span class="chev">⌄</span>
+<span class="num">13</span><p>Validate the ten-product limit for the Last Minute cart</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -712,7 +712,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate hiding the last minute component when checkout-promotions has no eligible products">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">14</span><p>Validate hiding the Last Minute component when checkout-promotions has no eligible products</p><span class="chev">⌄</span>
+<span class="num">14</span><p>Validate hiding the Last Minute component when checkout-promotions has no eligible products</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -721,7 +721,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate displaying the last minute component for a guest user">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">15</span><p>Validate displaying the Last Minute component for a guest user</p><span class="chev">⌄</span>
+<span class="num">15</span><p>Validate displaying the Last Minute component for a guest user</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
