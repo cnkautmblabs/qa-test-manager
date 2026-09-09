@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>QA Test Coverage — Candy & Last Minute</title>
 <style>
@@ -13,126 +12,980 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 .tabs{display:flex;gap:10px;margin:24px 0 16px;flex-wrap:wrap} .tab-btn{border:1px solid var(--border);background:var(--panel);color:var(--text);padding:12px 16px;border-radius:12px;cursor:pointer;font-weight:700}
 .tab-btn.active{background:var(--accent);color:#08111f;border-color:var(--accent)} .search{width:100%;padding:15px 18px;border-radius:14px;border:1px solid var(--border);background:#0f1729;color:var(--text);font-size:15px;outline:none;margin-bottom:20px}
 .tab-panel{display:none} .tab-panel.active{display:block} .section-head{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:14px} h2{margin:0;font-size:26px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px} .case{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:16px;padding:16px;min-height:86px}
-.num{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:11px;background:#1f2f52;color:#b8ccff;font-weight:700;font-size:13px} .case p{margin:5px 0 0;line-height:1.45}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.case{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.case-toggle{width:100%;display:flex;gap:14px;align-items:flex-start;background:none;border:0;color:var(--text);padding:16px;min-height:86px;text-align:left;cursor:pointer;font:inherit}
+.num{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:11px;background:#1f2f52;color:#b8ccff;font-weight:700;font-size:13px}
+.case p{margin:5px 0 0;line-height:1.45;flex:1} .chev{font-size:22px;color:var(--muted);transition:.2s;line-height:34px} .case.open .chev{transform:rotate(180deg)}
+.bdd{display:none;border-top:1px solid var(--border);padding:14px 18px 17px 68px;background:rgba(8,15,29,.35);font-size:14px;line-height:1.55}
+.case.open .bdd{display:block} .bdd div+div{margin-top:7px} .bdd b{color:#b8ccff;margin-right:5px}
 .hidden{display:none!important} .empty{display:none;color:var(--muted);padding:18px 4px} .empty.show{display:block} footer{margin-top:42px;text-align:center;font-size:13px}
-@media(max-width:760px){.grid{grid-template-columns:1fr}}
-</style></head>
-<body><div class="wrap">
-<div class="hero"><div><h1>QA Test Coverage</h1><div class="sub">Candy Store & Last Minute — test scenario catalog</div></div>
+@media(max-width:760px){.grid{grid-template-columns:1fr} .bdd{padding-left:18px}}
+</style></head><body><div class="wrap">
+<div class="hero"><div><h1>QA Test Coverage</h1><div class="sub">Candy Store & Last Minute — click a scenario to view its mini BDD</div></div>
 <div class="stats"><div class="stat"><b>63</b><span>Get Candy V2</span></div><div class="stat"><b>43</b><span>Last Minute</span></div><div class="stat"><b>106</b><span>Total Scenarios</span></div></div></div>
 <div class="tabs"><button class="tab-btn active" data-tab="get-candy">Get Candy V2</button><button class="tab-btn" data-tab="last-minute">Last Minute</button></div>
 <input id="search" class="search" placeholder="Search in Get Candy V2...">
-<section id="get-candy" class="tab-panel active"><div class="section-head"><h2>Get Candy V2</h2><div class="count">63 scenarios</div></div><div class="grid"><article class="case" data-text="validate cinema selector cannot be dismissed without selecting a cinema"><span class="num">01</span><p>Validate cinema selector cannot be dismissed without selecting a cinema</p></article>
-<article class="case" data-text="validate purchase candy as guest user"><span class="num">02</span><p>Validate purchase candy as guest user</p></article>
-<article class="case" data-text="validate purchase candy as authenticated user"><span class="num">03</span><p>Validate purchase candy as authenticated user</p></article>
-<article class="case" data-text="validate persisted cinema and get-candy request after reload"><span class="num">04</span><p>Validate persisted cinema and get-candy request after reload</p></article>
-<article class="case" data-text="validate navigation through all candy store categories"><span class="num">05</span><p>Validate navigation through all Candy Store categories</p></article>
-<article class="case" data-text="validate if hamburger menu is redirecting to all categories"><span class="num">06</span><p>Validate if hamburger Menu is redirecting to all categories</p></article>
-<article class="case" data-text="validate direct url opens the correct candy category"><span class="num">07</span><p>Validate direct URL opens the correct Candy category</p></article>
-<article class="case" data-text="validate each api category maps to one candy content section"><span class="num">08</span><p>Validate each API category maps to one Candy content section</p></article>
-<article class="case" data-text="validate scrolling keeps candy category state synchronized"><span class="num">09</span><p>Validate scrolling keeps Candy category state synchronized</p></article>
-<article class="case" data-text="validate complete candy catalog contract against frontend"><span class="num">10</span><p>Validate complete Candy catalog contract against frontend</p></article>
-<article class="case" data-text="validate product images in catalog and cart summary"><span class="num">11</span><p>Validate product images in catalog and cart summary</p></article>
-<article class="case" data-text="validate add item to cart and proceed to checkout"><span class="num">12</span><p>Validate add item to cart and proceed to checkout</p></article>
-<article class="case" data-text="validate added candy item highlights the product image"><span class="num">13</span><p>Validate added candy item highlights the product image</p></article>
-<article class="case" data-text="validate repeated product stays synchronized across candy categories"><span class="num">14</span><p>Validate repeated product stays synchronized across Candy categories</p></article>
-<article class="case" data-text="validate product highlights update when multiple items are removed"><span class="num">15</span><p>Validate product highlights update when multiple items are removed</p></article>
-<article class="case" data-text="validate resumen drawer displays all the informations correctly"><span class="num">16</span><p>Validate resumen drawer displays all the informations correctly</p></article>
-<article class="case" data-text="validate checkout button displays correct total sum (item + service fee)"><span class="num">17</span><p>Validate checkout button displays correct total sum (Item + Service Fee)</p></article>
-<article class="case" data-text="validate candy total remains consistent from cart summary to checkout"><span class="num">18</span><p>Validate candy total remains consistent from cart summary to checkout</p></article>
-<article class="case" data-text="validate candy total after removing one item before checkout"><span class="num">19</span><p>Validate candy total after removing one item before checkout</p></article>
-<article class="case" data-text="validate double click on add product does not duplicate item"><span class="num">20</span><p>Validate double click on add product does not duplicate item</p></article>
-<article class="case" data-text="validate rapid increase and decrease clicks keep cart synchronized"><span class="num">21</span><p>Validate rapid increase and decrease clicks keep cart synchronized</p></article>
-<article class="case" data-text="validate increasing item quantity updates total price"><span class="num">22</span><p>Validate increasing item quantity updates total price</p></article>
-<article class="case" data-text="validate decreasing item quantity updates total price"><span class="num">23</span><p>Validate decreasing item quantity updates total price</p></article>
-<article class="case" data-text="validate cart total after removing and re-adding candy item twice"><span class="num">24</span><p>Validate cart total after removing and re-adding candy item twice</p></article>
-<article class="case" data-text="validate item quantity counter increments accurately - increase and decrease"><span class="num">25</span><p>Validate item quantity counter increments accurately - increase and decrease</p></article>
-<article class="case" data-text="validate cart and summary persist after page reload"><span class="num">26</span><p>Validate cart and summary persist after page reload</p></article>
-<article class="case" data-text="validate per-item maximum quantity limit - 10 units"><span class="num">27</span><p>Validate per-item maximum quantity limit - 10 units</p></article>
-<article class="case" data-text="validate global cart limit with 10 different products"><span class="num">28</span><p>Validate global cart limit with 10 different products</p></article>
-<article class="case" data-text="validate global cart limit - 10 items total"><span class="num">29</span><p>Validate global cart limit - 10 items total</p></article>
-<article class="case" data-text="validate &#x27;see more&#x27; functionality for products"><span class="num">30</span><p>Validate &#x27;See More&#x27; functionality for products</p></article>
-<article class="case" data-text="validate required options to product"><span class="num">31</span><p>Validate required options to product</p></article>
-<article class="case" data-text="validate canceling product configuration keeps cart unchanged"><span class="num">32</span><p>Validate canceling product configuration keeps cart unchanged</p></article>
-<article class="case" data-text="validate combo item with multiple required options"><span class="num">33</span><p>Validate combo item with multiple required options</p></article>
-<article class="case" data-text="validate add item with required options to cart"><span class="num">34</span><p>Validate add item with required options to cart</p></article>
-<article class="case" data-text="validate replacing cart item updates required option selection"><span class="num">35</span><p>Validate replacing cart item updates required option selection</p></article>
-<article class="case" data-text="validate add two itens with differente required options"><span class="num">36</span><p>Validate add two itens with differente required options</p></article>
-<article class="case" data-text="validate browser back opens purchase cancellation modal"><span class="num">37</span><p>Validate browser back opens purchase cancellation modal</p></article>
-<article class="case" data-text="validate order cancellation workflow"><span class="num">38</span><p>Validate order cancellation workflow</p></article>
-<article class="case" data-text="validate purchase interruption when removing all items from cart"><span class="num">39</span><p>Validate purchase interruption when removing all items from cart</p></article>
-<article class="case" data-text="validate if main banner is visible"><span class="num">40</span><p>Validate if main banner is visible</p></article>
-<article class="case" data-text="validate if &#x27;cine para retiro&#x27; functionality updates the cinema correctly"><span class="num">41</span><p>Validate if &#x27;Cine para Retiro&#x27; functionality updates the cinema correctly</p></article>
-<article class="case" data-text="validate adding and removing a voucher item and recalculating the resumen drawer values"><span class="num">42</span><p>Validate adding and removing a voucher item and recalculating the Resumen drawer values</p></article>
-<article class="case" data-text="validate combining a voucher item with a regular candy item"><span class="num">43</span><p>Validate combining a voucher item with a regular candy item</p></article>
-<article class="case" data-text="validate handling an invalid voucher"><span class="num">44</span><p>Validate handling an invalid voucher</p></article>
-<article class="case" data-text="validate that a free voucher item does not add a service fee"><span class="num">45</span><p>Validate that a free voucher item does not add a service fee</p></article>
-<article class="case" data-text="validate resumen drawer values with a movie ticket, a voucher item, and a candy item"><span class="num">46</span><p>Validate Resumen drawer values with a movie ticket, a voucher item, and a candy item</p></article>
-<article class="case" data-text="validate resumen drawer values with a movie ticket and a voucher item only"><span class="num">47</span><p>Validate Resumen drawer values with a movie ticket and a voucher item only</p></article>
-<article class="case" data-text="validate voucher access for guest and authenticated users"><span class="num">48</span><p>Validate voucher access for guest and authenticated users</p></article>
-<article class="case" data-text="validate voucher code input normalization and length restrictions"><span class="num">49</span><p>Validate voucher code input normalization and length restrictions</p></article>
-<article class="case" data-text="validate duplicate voucher code submission is prevented"><span class="num">50</span><p>Validate duplicate voucher code submission is prevented</p></article>
-<article class="case" data-text="validate applying a voucher preserves the existing candy catalog"><span class="num">51</span><p>Validate applying a voucher preserves the existing Candy catalog</p></article>
-<article class="case" data-text="validate voucher products are merged into the candy catalog without duplication"><span class="num">52</span><p>Validate voucher products are merged into the Candy catalog without duplication</p></article>
-<article class="case" data-text="validate a valid voucher with no eligible products"><span class="num">53</span><p>Validate a valid voucher with no eligible products</p></article>
-<article class="case" data-text="validate voucher behavior after a 500 api error"><span class="num">54</span><p>Validate voucher behavior after a 500 API error</p></article>
-<article class="case" data-text="validate voucher behavior after a 401 response"><span class="num">55</span><p>Validate voucher behavior after a 401 response</p></article>
-<article class="case" data-text="validate voucher behavior after a request timeout"><span class="num">56</span><p>Validate voucher behavior after a request timeout</p></article>
-<article class="case" data-text="validate adding multiple products from the same voucher"><span class="num">57</span><p>Validate adding multiple products from the same voucher</p></article>
-<article class="case" data-text="validate compatibility rules when adding products from different vouchers"><span class="num">58</span><p>Validate compatibility rules when adding products from different vouchers</p></article>
-<article class="case" data-text="validate voucher prefix compatibility rules"><span class="num">59</span><p>Validate voucher prefix compatibility rules</p></article>
-<article class="case" data-text="validate voucher state is cleared after changing the cinema"><span class="num">60</span><p>Validate voucher state is cleared after changing the cinema</p></article>
-<article class="case" data-text="validate voucher state is cleared after logout"><span class="num">61</span><p>Validate voucher state is cleared after logout</p></article>
-<article class="case" data-text="validate voucher products remain associated with the correct voucher code"><span class="num">62</span><p>Validate voucher products remain associated with the correct voucher code</p></article>
-<article class="case" data-text="validate voucher lookup without authentication in chile"><span class="num">63</span><p>Validate voucher lookup without authentication in Chile</p></article></div><div class="empty">No scenarios found in Get Candy V2.</div></section>
-<section id="last-minute" class="tab-panel"><div class="section-head"><h2>Last Minute</h2><div class="count">43 scenarios</div></div><div class="grid"><article class="case" data-text="validate checkout-promotions contract and eligible last minute products"><span class="num">01</span><p>Validate checkout-promotions contract and eligible Last Minute products</p></article>
-<article class="case" data-text="validate displaying at most four products in the last minute list"><span class="num">02</span><p>Validate displaying at most four products in the Last Minute list</p></article>
-<article class="case" data-text="validate collapsing and reopening the last minute component"><span class="num">03</span><p>Validate collapsing and reopening the Last Minute component</p></article>
-<article class="case" data-text="validate adding a last minute product that does not require configuration"><span class="num">04</span><p>Validate adding a Last Minute product that does not require configuration</p></article>
-<article class="case" data-text="validate removing a last minute product from the product counter"><span class="num">05</span><p>Validate removing a Last Minute product from the product counter</p></article>
-<article class="case" data-text="validate editing a last minute product quantity from the cart summary"><span class="num">06</span><p>Validate editing a Last Minute product quantity from the cart summary</p></article>
-<article class="case" data-text="validate automatically removing a last minute product when its quantity reaches zero"><span class="num">07</span><p>Validate automatically removing a Last Minute product when its quantity reaches zero</p></article>
-<article class="case" data-text="validate last minute values and calculations with a movie ticket and a last minute product"><span class="num">08</span><p>Validate Last Minute values and calculations with a movie ticket and a Last Minute product</p></article>
-<article class="case" data-text="validate adding, updating and removing a last minute product from the cart"><span class="num">09</span><p>Validate adding, updating and removing a Last Minute product from the cart</p></article>
-<article class="case" data-text="validate last minute product information tooltip"><span class="num">10</span><p>Validate Last Minute product information tooltip</p></article>
-<article class="case" data-text="validate adding a configurable last minute product through the concessions drawer"><span class="num">11</span><p>Validate adding a configurable Last Minute product through the Concessions drawer</p></article>
-<article class="case" data-text="validate the five-unit limit for a last minute product"><span class="num">12</span><p>Validate the five-unit limit for a Last Minute product</p></article>
-<article class="case" data-text="validate the ten-product limit for the last minute cart"><span class="num">13</span><p>Validate the ten-product limit for the Last Minute cart</p></article>
-<article class="case" data-text="validate hiding the last minute component when checkout-promotions has no eligible products"><span class="num">14</span><p>Validate hiding the Last Minute component when checkout-promotions has no eligible products</p></article>
-<article class="case" data-text="validate displaying the last minute component for a guest user"><span class="num">15</span><p>Validate displaying the Last Minute component for a guest user</p></article>
-<article class="case" data-text="validate displaying a last minute offer together with an existing candy item"><span class="num">16</span><p>Validate displaying a Last Minute offer together with an existing candy item</p></article>
-<article class="case" data-text="validate last minute values and calculations with a movie ticket, a candy item, and a last minute product"><span class="num">17</span><p>Validate Last Minute values and calculations with a movie ticket, a candy item, and a Last Minute product</p></article>
-<article class="case" data-text="validate last minute values and calculations with a candy item and a last minute product"><span class="num">18</span><p>Validate Last Minute values and calculations with a candy item and a Last Minute product</p></article>
-<article class="case" data-text="validate showing a beverage last minute offer when the cart contains no beverage"><span class="num">19</span><p>Validate showing a beverage Last Minute offer when the cart contains no beverage</p></article>
-<article class="case" data-text="validate displaying a last minute offer for a product already in the cart"><span class="num">20</span><p>Validate displaying a Last Minute offer for a product already in the cart</p></article>
-<article class="case" data-text="validate keeping the movie ticket in the cart after removing only the last minute product"><span class="num">21</span><p>Validate keeping the movie ticket in the cart after removing only the Last Minute product</p></article>
-<article class="case" data-text="validate keeping the candy item in the cart after removing only the last minute product"><span class="num">22</span><p>Validate keeping the candy item in the cart after removing only the Last Minute product</p></article>
-<article class="case" data-text="validate keeping a free candy voucher item fee-free after adding and removing a last minute product"><span class="num">23</span><p>Validate keeping a free candy voucher item fee-free after adding and removing a Last Minute product</p></article>
-<article class="case" data-text="validate keeping the last minute product price unchanged after switching the payment method"><span class="num">24</span><p>Validate keeping the Last Minute product price unchanged after switching the payment method</p></article>
-<article class="case" data-text="validate recalculating totals after increasing and decreasing a last minute product quantity"><span class="num">25</span><p>Validate recalculating totals after increasing and decreasing a Last Minute product quantity</p></article>
-<article class="case" data-text="validate removing the concessions service fee after removing the last food item"><span class="num">26</span><p>Validate removing the concessions service fee after removing the last food item</p></article>
-<article class="case" data-text="validate charging the concessions service fee only once for multiple last minute products"><span class="num">27</span><p>Validate charging the concessions service fee only once for multiple Last Minute products</p></article>
-<article class="case" data-text="validate keeping the concessions service fee when a regular candy item remains in the cart"><span class="num">28</span><p>Validate keeping the concessions service fee when a regular candy item remains in the cart</p></article>
-<article class="case" data-text="validate preventing duplicate last minute additions during consecutive clicks"><span class="num">29</span><p>Validate preventing duplicate Last Minute additions during consecutive clicks</p></article>
-<article class="case" data-text="validate restoring the last minute counter after an order-candy failure"><span class="num">30</span><p>Validate restoring the Last Minute counter after an order-candy failure</p></article>
-<article class="case" data-text="validate handling a checkout-promotions api error without blocking checkout"><span class="num">31</span><p>Validate handling a checkout-promotions API error without blocking checkout</p></article>
-<article class="case" data-text="validate ignoring duplicated products returned by checkout-promotions"><span class="num">32</span><p>Validate ignoring duplicated products returned by checkout-promotions</p></article>
-<article class="case" data-text="validate displaying only four last minute products when checkout-promotions returns more than four eligible items"><span class="num">33</span><p>Validate displaying only four Last Minute products when checkout-promotions returns more than four eligible items</p></article>
-<article class="case" data-text="validate cancelling the configuration drawer without adding the last minute product"><span class="num">34</span><p>Validate cancelling the configuration drawer without adding the Last Minute product</p></article>
-<article class="case" data-text="validate requiring all mandatory configuration options before adding a last minute product"><span class="num">35</span><p>Validate requiring all mandatory configuration options before adding a Last Minute product</p></article>
-<article class="case" data-text="validate preserving last minute products after reopening the checkout page"><span class="num">36</span><p>Validate preserving Last Minute products after reopening the checkout page</p></article>
-<article class="case" data-text="validate including last minute products in the final purchase request"><span class="num">37</span><p>Validate including Last Minute products in the final purchase request</p></article>
-<article class="case" data-text="validate displaying a last minute offer when the cart contains a voucher item"><span class="num">38</span><p>Validate displaying a Last Minute offer when the cart contains a voucher item</p></article>
-<article class="case" data-text="validate adding a last minute product when the cart contains a voucher item"><span class="num">39</span><p>Validate adding a Last Minute product when the cart contains a voucher item</p></article>
-<article class="case" data-text="validate last minute values and calculations with a movie ticket, a voucher item, and a last minute product"><span class="num">40</span><p>Validate Last Minute values and calculations with a movie ticket, a voucher item, and a Last Minute product</p></article>
-<article class="case" data-text="validate last minute values and calculations with a voucher item and a last minute product"><span class="num">41</span><p>Validate Last Minute values and calculations with a voucher item and a Last Minute product</p></article>
-<article class="case" data-text="validate keeping the voucher item in the cart after removing only the last minute product"><span class="num">42</span><p>Validate keeping the voucher item in the cart after removing only the Last Minute product</p></article>
-<article class="case" data-text="validate resumen drawer values with a movie ticket, a voucher item, and a last minute product"><span class="num">43</span><p>Validate Resumen drawer values with a movie ticket, a voucher item, and a Last Minute product</p></article></div><div class="empty">No scenarios found in Last Minute.</div></section>
+<section id="get-candy" class="tab-panel active"><div class="section-head"><h2>Get Candy V2</h2><div class="count">63 scenarios</div></div><div class="grid"><article class="case" data-text="validate cinema selector cannot be dismissed without selecting a cinema">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">01</span><p>Validate cinema selector cannot be dismissed without selecting a cinema</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is accessing the Candy Store</div>
+<div><b>When</b> the user selects or changes the cinema</div>
+<div><b>Then</b> the selected cinema and Candy Store data should be updated correctly</div>
+</div></article>
+<article class="case" data-text="validate purchase candy as guest user">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">02</span><p>Validate purchase candy as guest user</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is not authenticated</div>
+<div><b>When</b> the user accesses the Candy purchase flow</div>
+<div><b>Then</b> the flow should behave correctly for a guest user</div>
+</div></article>
+<article class="case" data-text="validate purchase candy as authenticated user">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">03</span><p>Validate purchase candy as authenticated user</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is authenticated</div>
+<div><b>When</b> the user accesses the Candy purchase flow</div>
+<div><b>Then</b> the flow should behave correctly for an authenticated user</div>
+</div></article>
+<article class="case" data-text="validate persisted cinema and get-candy request after reload">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">04</span><p>Validate persisted cinema and get-candy request after reload</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is accessing the Candy Store</div>
+<div><b>When</b> the user selects or changes the cinema</div>
+<div><b>Then</b> the selected cinema and Candy Store data should be updated correctly</div>
+</div></article>
+<article class="case" data-text="validate navigation through all candy store categories">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">05</span><p>Validate navigation through all Candy Store categories</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the Candy Store catalog is loaded</div>
+<div><b>When</b> the user navigates between Candy categories</div>
+<div><b>Then</b> the correct category and products should be displayed</div>
+</div></article>
+<article class="case" data-text="validate if hamburger menu is redirecting to all categories">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">06</span><p>Validate if hamburger Menu is redirecting to all categories</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the Candy Store catalog is loaded</div>
+<div><b>When</b> the user navigates between Candy categories</div>
+<div><b>Then</b> the correct category and products should be displayed</div>
+</div></article>
+<article class="case" data-text="validate direct url opens the correct candy category">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">07</span><p>Validate direct URL opens the correct Candy category</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the Candy Store catalog is loaded</div>
+<div><b>When</b> the user navigates between Candy categories</div>
+<div><b>Then</b> the correct category and products should be displayed</div>
+</div></article>
+<article class="case" data-text="validate each api category maps to one candy content section">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">08</span><p>Validate each API category maps to one Candy content section</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the Candy Store catalog is loaded</div>
+<div><b>When</b> the user navigates between Candy categories</div>
+<div><b>Then</b> the correct category and products should be displayed</div>
+</div></article>
+<article class="case" data-text="validate scrolling keeps candy category state synchronized">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">09</span><p>Validate scrolling keeps Candy category state synchronized</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the Candy Store catalog is loaded</div>
+<div><b>When</b> the user navigates between Candy categories</div>
+<div><b>Then</b> the correct category and products should be displayed</div>
+</div></article>
+<article class="case" data-text="validate complete candy catalog contract against frontend">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">10</span><p>Validate complete Candy catalog contract against frontend</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate product images in catalog and cart summary">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">11</span><p>Validate product images in catalog and cart summary</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate add item to cart and proceed to checkout">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">12</span><p>Validate add item to cart and proceed to checkout</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the requested Candy product is available</div>
+<div><b>When</b> the user adds the product</div>
+<div><b>Then</b> the product should be added correctly and the cart should be updated</div>
+</div></article>
+<article class="case" data-text="validate added candy item highlights the product image">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">13</span><p>Validate added candy item highlights the product image</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate repeated product stays synchronized across candy categories">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">14</span><p>Validate repeated product stays synchronized across Candy categories</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the Candy Store catalog is loaded</div>
+<div><b>When</b> the user navigates between Candy categories</div>
+<div><b>Then</b> the correct category and products should be displayed</div>
+</div></article>
+<article class="case" data-text="validate product highlights update when multiple items are removed">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">15</span><p>Validate product highlights update when multiple items are removed</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the relevant product is already in the cart</div>
+<div><b>When</b> the user removes the product</div>
+<div><b>Then</b> the cart, counters, and totals should be updated correctly</div>
+</div></article>
+<article class="case" data-text="validate resumen drawer displays all the informations correctly">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">16</span><p>Validate resumen drawer displays all the informations correctly</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has the required items in the purchase</div>
+<div><b>When</b> the cart or Resumen is displayed or updated</div>
+<div><b>Then</b> item values, service fee, subtotal, and total should be correct</div>
+</div></article>
+<article class="case" data-text="validate checkout button displays correct total sum (item + service fee)">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">17</span><p>Validate checkout button displays correct total sum (Item + Service Fee)</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has the required items in the purchase</div>
+<div><b>When</b> the cart or Resumen is displayed or updated</div>
+<div><b>Then</b> item values, service fee, subtotal, and total should be correct</div>
+</div></article>
+<article class="case" data-text="validate candy total remains consistent from cart summary to checkout">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">18</span><p>Validate candy total remains consistent from cart summary to checkout</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has the required items in the purchase</div>
+<div><b>When</b> the cart or Resumen is displayed or updated</div>
+<div><b>Then</b> item values, service fee, subtotal, and total should be correct</div>
+</div></article>
+<article class="case" data-text="validate candy total after removing one item before checkout">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">19</span><p>Validate candy total after removing one item before checkout</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has the required items in the purchase</div>
+<div><b>When</b> the cart or Resumen is displayed or updated</div>
+<div><b>Then</b> item values, service fee, subtotal, and total should be correct</div>
+</div></article>
+<article class="case" data-text="validate double click on add product does not duplicate item">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">20</span><p>Validate double click on add product does not duplicate item</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate rapid increase and decrease clicks keep cart synchronized">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">21</span><p>Validate rapid increase and decrease clicks keep cart synchronized</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate increasing item quantity updates total price">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">22</span><p>Validate increasing item quantity updates total price</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a Candy product is available in the cart</div>
+<div><b>When</b> the user changes the product quantity</div>
+<div><b>Then</b> the quantity, limits, cart, and totals should remain synchronized</div>
+</div></article>
+<article class="case" data-text="validate decreasing item quantity updates total price">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">23</span><p>Validate decreasing item quantity updates total price</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a Candy product is available in the cart</div>
+<div><b>When</b> the user changes the product quantity</div>
+<div><b>Then</b> the quantity, limits, cart, and totals should remain synchronized</div>
+</div></article>
+<article class="case" data-text="validate cart total after removing and re-adding candy item twice">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">24</span><p>Validate cart total after removing and re-adding candy item twice</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has the required items in the purchase</div>
+<div><b>When</b> the cart or Resumen is displayed or updated</div>
+<div><b>Then</b> item values, service fee, subtotal, and total should be correct</div>
+</div></article>
+<article class="case" data-text="validate item quantity counter increments accurately - increase and decrease">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">25</span><p>Validate item quantity counter increments accurately - increase and decrease</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a Candy product is available in the cart</div>
+<div><b>When</b> the user changes the product quantity</div>
+<div><b>Then</b> the quantity, limits, cart, and totals should remain synchronized</div>
+</div></article>
+<article class="case" data-text="validate cart and summary persist after page reload">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">26</span><p>Validate cart and summary persist after page reload</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has an active Candy purchase</div>
+<div><b>When</b> the page is reloaded or reopened</div>
+<div><b>Then</b> the expected purchase state should be preserved</div>
+</div></article>
+<article class="case" data-text="validate per-item maximum quantity limit - 10 units">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">27</span><p>Validate per-item maximum quantity limit - 10 units</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a Candy product is available in the cart</div>
+<div><b>When</b> the user changes the product quantity</div>
+<div><b>Then</b> the quantity, limits, cart, and totals should remain synchronized</div>
+</div></article>
+<article class="case" data-text="validate global cart limit with 10 different products">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">28</span><p>Validate global cart limit with 10 different products</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a Candy product is available in the cart</div>
+<div><b>When</b> the user changes the product quantity</div>
+<div><b>Then</b> the quantity, limits, cart, and totals should remain synchronized</div>
+</div></article>
+<article class="case" data-text="validate global cart limit - 10 items total">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">29</span><p>Validate global cart limit - 10 items total</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a Candy product is available in the cart</div>
+<div><b>When</b> the user changes the product quantity</div>
+<div><b>Then</b> the quantity, limits, cart, and totals should remain synchronized</div>
+</div></article>
+<article class="case" data-text="validate &#x27;see more&#x27; functionality for products">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">30</span><p>Validate &#x27;See More&#x27; functionality for products</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate required options to product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">31</span><p>Validate required options to product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a configurable Candy product is available</div>
+<div><b>When</b> the user opens and interacts with the product configuration</div>
+<div><b>Then</b> required options and cart state should be handled correctly</div>
+</div></article>
+<article class="case" data-text="validate canceling product configuration keeps cart unchanged">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">32</span><p>Validate canceling product configuration keeps cart unchanged</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a configurable Candy product is available</div>
+<div><b>When</b> the user opens and interacts with the product configuration</div>
+<div><b>Then</b> required options and cart state should be handled correctly</div>
+</div></article>
+<article class="case" data-text="validate combo item with multiple required options">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">33</span><p>Validate combo item with multiple required options</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a configurable Candy product is available</div>
+<div><b>When</b> the user opens and interacts with the product configuration</div>
+<div><b>Then</b> required options and cart state should be handled correctly</div>
+</div></article>
+<article class="case" data-text="validate add item with required options to cart">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">34</span><p>Validate add item with required options to cart</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a configurable Candy product is available</div>
+<div><b>When</b> the user opens and interacts with the product configuration</div>
+<div><b>Then</b> required options and cart state should be handled correctly</div>
+</div></article>
+<article class="case" data-text="validate replacing cart item updates required option selection">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">35</span><p>Validate replacing cart item updates required option selection</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a configurable Candy product is available</div>
+<div><b>When</b> the user opens and interacts with the product configuration</div>
+<div><b>Then</b> required options and cart state should be handled correctly</div>
+</div></article>
+<article class="case" data-text="validate add two itens with differente required options">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">36</span><p>Validate add two itens with differente required options</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> a configurable Candy product is available</div>
+<div><b>When</b> the user opens and interacts with the product configuration</div>
+<div><b>Then</b> required options and cart state should be handled correctly</div>
+</div></article>
+<article class="case" data-text="validate browser back opens purchase cancellation modal">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">37</span><p>Validate browser back opens purchase cancellation modal</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has an active Candy purchase</div>
+<div><b>When</b> the user attempts to cancel or leave the purchase</div>
+<div><b>Then</b> the cancellation flow and cart state should behave correctly</div>
+</div></article>
+<article class="case" data-text="validate order cancellation workflow">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">38</span><p>Validate order cancellation workflow</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has an active Candy purchase</div>
+<div><b>When</b> the user attempts to cancel or leave the purchase</div>
+<div><b>Then</b> the cancellation flow and cart state should behave correctly</div>
+</div></article>
+<article class="case" data-text="validate purchase interruption when removing all items from cart">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">39</span><p>Validate purchase interruption when removing all items from cart</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the relevant product is already in the cart</div>
+<div><b>When</b> the user removes the product</div>
+<div><b>Then</b> the cart, counters, and totals should be updated correctly</div>
+</div></article>
+<article class="case" data-text="validate if main banner is visible">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">40</span><p>Validate if main banner is visible</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate if &#x27;cine para retiro&#x27; functionality updates the cinema correctly">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">41</span><p>Validate if &#x27;Cine para Retiro&#x27; functionality updates the cinema correctly</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is accessing the Candy Store</div>
+<div><b>When</b> the user selects or changes the cinema</div>
+<div><b>Then</b> the selected cinema and Candy Store data should be updated correctly</div>
+</div></article>
+<article class="case" data-text="validate adding and removing a voucher item and recalculating the resumen drawer values">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">42</span><p>Validate adding and removing a voucher item and recalculating the Resumen drawer values</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate combining a voucher item with a regular candy item">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">43</span><p>Validate combining a voucher item with a regular candy item</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate handling an invalid voucher">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">44</span><p>Validate handling an invalid voucher</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate that a free voucher item does not add a service fee">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">45</span><p>Validate that a free voucher item does not add a service fee</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate resumen drawer values with a movie ticket, a voucher item, and a candy item">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">46</span><p>Validate Resumen drawer values with a movie ticket, a voucher item, and a candy item</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate resumen drawer values with a movie ticket and a voucher item only">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">47</span><p>Validate Resumen drawer values with a movie ticket and a voucher item only</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher access for guest and authenticated users">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">48</span><p>Validate voucher access for guest and authenticated users</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher code input normalization and length restrictions">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">49</span><p>Validate voucher code input normalization and length restrictions</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate duplicate voucher code submission is prevented">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">50</span><p>Validate duplicate voucher code submission is prevented</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate applying a voucher preserves the existing candy catalog">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">51</span><p>Validate applying a voucher preserves the existing Candy catalog</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher products are merged into the candy catalog without duplication">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">52</span><p>Validate voucher products are merged into the Candy catalog without duplication</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate a valid voucher with no eligible products">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">53</span><p>Validate a valid voucher with no eligible products</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher behavior after a 500 api error">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">54</span><p>Validate voucher behavior after a 500 API error</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher behavior after a 401 response">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">55</span><p>Validate voucher behavior after a 401 response</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher behavior after a request timeout">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">56</span><p>Validate voucher behavior after a request timeout</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate adding multiple products from the same voucher">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">57</span><p>Validate adding multiple products from the same voucher</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate compatibility rules when adding products from different vouchers">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">58</span><p>Validate compatibility rules when adding products from different vouchers</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher prefix compatibility rules">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">59</span><p>Validate voucher prefix compatibility rules</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher state is cleared after changing the cinema">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">60</span><p>Validate voucher state is cleared after changing the cinema</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher state is cleared after logout">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">61</span><p>Validate voucher state is cleared after logout</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher products remain associated with the correct voucher code">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">62</span><p>Validate voucher products remain associated with the correct voucher code</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate voucher lookup without authentication in chile">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">63</span><p>Validate voucher lookup without authentication in Chile</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store with the required voucher context</div>
+<div><b>When</b> the user applies or interacts with the voucher</div>
+<div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
+</div></article></div><div class="empty">No scenarios found in Get Candy V2.</div></section>
+<section id="last-minute" class="tab-panel"><div class="section-head"><h2>Last Minute</h2><div class="count">43 scenarios</div></div><div class="grid"><article class="case" data-text="validate checkout-promotions contract and eligible last minute products">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">01</span><p>Validate checkout-promotions contract and eligible Last Minute products</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate displaying at most four products in the last minute list">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">02</span><p>Validate displaying at most four products in the Last Minute list</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate collapsing and reopening the last minute component">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">03</span><p>Validate collapsing and reopening the Last Minute component</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate adding a last minute product that does not require configuration">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">04</span><p>Validate adding a Last Minute product that does not require configuration</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate removing a last minute product from the product counter">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">05</span><p>Validate removing a Last Minute product from the product counter</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate editing a last minute product quantity from the cart summary">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">06</span><p>Validate editing a Last Minute product quantity from the cart summary</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate automatically removing a last minute product when its quantity reaches zero">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">07</span><p>Validate automatically removing a Last Minute product when its quantity reaches zero</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate last minute values and calculations with a movie ticket and a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">08</span><p>Validate Last Minute values and calculations with a movie ticket and a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate adding, updating and removing a last minute product from the cart">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">09</span><p>Validate adding, updating and removing a Last Minute product from the cart</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate last minute product information tooltip">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">10</span><p>Validate Last Minute product information tooltip</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate adding a configurable last minute product through the concessions drawer">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">11</span><p>Validate adding a configurable Last Minute product through the Concessions drawer</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate the five-unit limit for a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">12</span><p>Validate the five-unit limit for a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate the ten-product limit for the last minute cart">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">13</span><p>Validate the ten-product limit for the Last Minute cart</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate hiding the last minute component when checkout-promotions has no eligible products">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">14</span><p>Validate hiding the Last Minute component when checkout-promotions has no eligible products</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate displaying the last minute component for a guest user">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">15</span><p>Validate displaying the Last Minute component for a guest user</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate displaying a last minute offer together with an existing candy item">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">16</span><p>Validate displaying a Last Minute offer together with an existing candy item</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate last minute values and calculations with a movie ticket, a candy item, and a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">17</span><p>Validate Last Minute values and calculations with a movie ticket, a candy item, and a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate last minute values and calculations with a candy item and a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">18</span><p>Validate Last Minute values and calculations with a candy item and a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate showing a beverage last minute offer when the cart contains no beverage">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">19</span><p>Validate showing a beverage Last Minute offer when the cart contains no beverage</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate displaying a last minute offer for a product already in the cart">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">20</span><p>Validate displaying a Last Minute offer for a product already in the cart</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate keeping the movie ticket in the cart after removing only the last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">21</span><p>Validate keeping the movie ticket in the cart after removing only the Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate keeping the candy item in the cart after removing only the last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">22</span><p>Validate keeping the candy item in the cart after removing only the Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate keeping a free candy voucher item fee-free after adding and removing a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">23</span><p>Validate keeping a free candy voucher item fee-free after adding and removing a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate keeping the last minute product price unchanged after switching the payment method">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">24</span><p>Validate keeping the Last Minute product price unchanged after switching the payment method</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate recalculating totals after increasing and decreasing a last minute product quantity">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">25</span><p>Validate recalculating totals after increasing and decreasing a Last Minute product quantity</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate removing the concessions service fee after removing the last food item">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">26</span><p>Validate removing the concessions service fee after removing the last food item</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has the required items in the purchase</div>
+<div><b>When</b> the cart or Resumen is displayed or updated</div>
+<div><b>Then</b> item values, service fee, subtotal, and total should be correct</div>
+</div></article>
+<article class="case" data-text="validate charging the concessions service fee only once for multiple last minute products">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">27</span><p>Validate charging the concessions service fee only once for multiple Last Minute products</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate keeping the concessions service fee when a regular candy item remains in the cart">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">28</span><p>Validate keeping the concessions service fee when a regular candy item remains in the cart</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user has the required items in the purchase</div>
+<div><b>When</b> the cart or Resumen is displayed or updated</div>
+<div><b>Then</b> item values, service fee, subtotal, and total should be correct</div>
+</div></article>
+<article class="case" data-text="validate preventing duplicate last minute additions during consecutive clicks">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">29</span><p>Validate preventing duplicate Last Minute additions during consecutive clicks</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate restoring the last minute counter after an order-candy failure">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">30</span><p>Validate restoring the Last Minute counter after an order-candy failure</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate handling a checkout-promotions api error without blocking checkout">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">31</span><p>Validate handling a checkout-promotions API error without blocking checkout</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the relevant backend request is intercepted</div>
+<div><b>When</b> the configured error response occurs</div>
+<div><b>Then</b> the UI should recover gracefully without leaving an inconsistent cart state</div>
+</div></article>
+<article class="case" data-text="validate ignoring duplicated products returned by checkout-promotions">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">32</span><p>Validate ignoring duplicated products returned by checkout-promotions</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on the Candy Store page</div>
+<div><b>When</b> the user performs the scenario action</div>
+<div><b>Then</b> the expected Candy Store behavior should be displayed</div>
+</div></article>
+<article class="case" data-text="validate displaying only four last minute products when checkout-promotions returns more than four eligible items">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">33</span><p>Validate displaying only four Last Minute products when checkout-promotions returns more than four eligible items</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate cancelling the configuration drawer without adding the last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">34</span><p>Validate cancelling the configuration drawer without adding the Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate requiring all mandatory configuration options before adding a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">35</span><p>Validate requiring all mandatory configuration options before adding a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate preserving last minute products after reopening the checkout page">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">36</span><p>Validate preserving Last Minute products after reopening the checkout page</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate including last minute products in the final purchase request">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">37</span><p>Validate including Last Minute products in the final purchase request</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate displaying a last minute offer when the cart contains a voucher item">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">38</span><p>Validate displaying a Last Minute offer when the cart contains a voucher item</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate adding a last minute product when the cart contains a voucher item">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">39</span><p>Validate adding a Last Minute product when the cart contains a voucher item</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate last minute values and calculations with a movie ticket, a voucher item, and a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">40</span><p>Validate Last Minute values and calculations with a movie ticket, a voucher item, and a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate last minute values and calculations with a voucher item and a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">41</span><p>Validate Last Minute values and calculations with a voucher item and a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate keeping the voucher item in the cart after removing only the last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">42</span><p>Validate keeping the voucher item in the cart after removing only the Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article>
+<article class="case" data-text="validate resumen drawer values with a movie ticket, a voucher item, and a last minute product">
+<button class="case-toggle" type="button" aria-expanded="false">
+<span class="num">43</span><p>Validate Resumen drawer values with a movie ticket, a voucher item, and a Last Minute product</p><span class="chev">⌄</span>
+</button>
+<div class="bdd">
+<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
+<div><b>When</b> the user performs the Last Minute scenario action</div>
+<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
+</div></article></div><div class="empty">No scenarios found in Last Minute.</div></section>
 <footer>QA Scenario Dashboard</footer></div>
 <script>
 const buttons=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.tab-panel'),search=document.getElementById('search');
 function panel(){return document.querySelector('.tab-panel.active')}
 function filter(){const p=panel(),q=search.value.trim().toLowerCase();let n=0;p.querySelectorAll('.case').forEach(c=>{const ok=!q||c.dataset.text.includes(q);c.classList.toggle('hidden',!ok);if(ok)n++});p.querySelector('.empty').classList.toggle('show',n===0)}
-buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active');search.value='';search.placeholder=`Search in ${b.textContent}...`;filter()})); search.addEventListener('input',filter);
+buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active');search.value='';search.placeholder=`Search in ${b.textContent}...`;filter()}));
+document.querySelectorAll('.case-toggle').forEach(btn=>btn.addEventListener('click',()=>{const c=btn.closest('.case'),open=c.classList.toggle('open');btn.setAttribute('aria-expanded',open)}));
+search.addEventListener('input',filter);
 </script></body></html>
