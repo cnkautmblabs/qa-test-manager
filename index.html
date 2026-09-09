@@ -15,6 +15,10 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 .auto-filter .filter-a{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#22c55e;color:white;font-size:12px;font-weight:900;box-shadow:0 0 0 3px rgba(34,197,94,.12)}
 .auto-filter.active{border-color:#22c55e;background:rgba(34,197,94,.12)}
 .auto-filter.active .filter-a{box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.manual-filter{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--panel);color:var(--text);padding:8px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px}
+.manual-filter .filter-m{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#64748b;color:white;font-size:12px;font-weight:900;box-shadow:0 0 0 3px rgba(100,116,139,.12)}
+.manual-filter.active{border-color:#94a3b8;background:rgba(148,163,184,.12)}
+.manual-filter.active .filter-m{box-shadow:0 0 0 4px rgba(148,163,184,.18)}
 
 .tab-panel{display:none} .tab-panel.active{display:block} .section-head{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:14px} h2{margin:0;font-size:26px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
@@ -31,7 +35,10 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 <div class="stats"><div class="stat"><b>63</b><span>Get Candy V2</span></div><div class="stat"><b>43</b><span>Last Minute</span></div><div class="stat"><b>106</b><span>Total Scenarios</span></div></div></div>
 <div class="tabs"><button class="tab-btn active" data-tab="get-candy">Get Candy V2</button><button class="tab-btn" data-tab="last-minute">Last Minute</button></div>
 <input id="search" class="search" placeholder="Search in Get Candy V2...">
-<div class="filter-row"><button id="autoFilter" class="auto-filter" type="button" aria-pressed="false"><span class="filter-a">A</span><span>Automated</span></button></div>
+<div class="filter-row">
+<button id="autoFilter" class="auto-filter" type="button" aria-pressed="false"><span class="filter-a">A</span><span>Automated</span></button>
+<button id="manualFilter" class="manual-filter" type="button" aria-pressed="false"><span class="filter-m">M</span><span>Manual</span></button>
+</div>
 <section id="get-candy" class="tab-panel active"><div class="section-head"><h2>Get Candy V2</h2><div class="count">63 scenarios</div></div><div class="grid"><article class="case" data-text="validate cinema selector cannot be dismissed without selecting a cinema" data-automated="true">
 <button class="case-toggle" type="button" aria-expanded="false">
 <span class="num">01</span><p>Validate cinema selector cannot be dismissed without selecting a cinema</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
@@ -988,15 +995,16 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article></div><div class="empty">No scenarios found in Last Minute.</div></section>
 <footer>QA Scenario Dashboard</footer></div>
 <script>
-const buttons=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.tab-panel'),search=document.getElementById('search'),autoFilter=document.getElementById('autoFilter');
-let automatedOnly=false;
+const buttons=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.tab-panel'),search=document.getElementById('search'),autoFilter=document.getElementById('autoFilter'),manualFilter=document.getElementById('manualFilter');
+let automatedOnly=false,manualOnly=false;
 function panel(){return document.querySelector('.tab-panel.active')}
 function filter(){
   const p=panel(),q=search.value.trim().toLowerCase();let n=0;
   p.querySelectorAll('.case').forEach(c=>{
     const matchesText=!q||c.dataset.text.includes(q);
-    const matchesAutomation=!automatedOnly||c.dataset.automated==='true';
-    const ok=matchesText&&matchesAutomation;
+    const isAutomated=c.dataset.automated==='true';
+    const matchesType=(!automatedOnly&&!manualOnly)||(automatedOnly&&isAutomated)||(manualOnly&&!isAutomated);
+    const ok=matchesText&&matchesType;
     c.classList.toggle('hidden',!ok);
     if(ok)n++;
   });
@@ -1014,7 +1022,19 @@ buttons.forEach(b=>b.addEventListener('click',()=>{
 }));
 autoFilter.addEventListener('click',()=>{
   automatedOnly=!automatedOnly;
+  if(automatedOnly){manualOnly=false}
   autoFilter.classList.toggle('active',automatedOnly);
+  manualFilter.classList.toggle('active',manualOnly);
+  autoFilter.setAttribute('aria-pressed',String(automatedOnly));
+  manualFilter.setAttribute('aria-pressed',String(manualOnly));
+  filter();
+});
+manualFilter.addEventListener('click',()=>{
+  manualOnly=!manualOnly;
+  if(manualOnly){automatedOnly=false}
+  manualFilter.classList.toggle('active',manualOnly);
+  autoFilter.classList.toggle('active',automatedOnly);
+  manualFilter.setAttribute('aria-pressed',String(manualOnly));
   autoFilter.setAttribute('aria-pressed',String(automatedOnly));
   filter();
 });
