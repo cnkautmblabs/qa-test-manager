@@ -29,6 +29,13 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 .bdd{display:none;border-top:1px solid var(--border);padding:14px 18px 17px 68px;background:rgba(8,15,29,.35);font-size:14px;line-height:1.55}
 .case.open .bdd{display:block} .bdd div+div{margin-top:7px} .bdd b{color:#b8ccff;margin-right:5px}
 .hidden{display:none!important} .empty{display:none;color:var(--muted);padding:18px 4px} .empty.show{display:block} footer{margin-top:42px;text-align:center;font-size:13px}
+
+/* --- ESTILOS DAS BADGES DOS PAÍSES --- */
+.country-badges { display: flex; gap: 6px; align-items: center; margin-right: 12px; flex-wrap: wrap; }
+.c-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 800; padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); text-transform: uppercase; line-height: 1; }
+.c-badge.passed { background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.3); color: #4ade80; }
+.c-badge img { width: 14px; height: 10.5px; border-radius: 2px; object-fit: cover; }
+
 @media(max-width:760px){.grid{grid-template-columns:1fr} .bdd{padding-left:18px}}
 </style></head><body><div class="wrap">
 <div class="hero"><div><h1>QA Test Coverage</h1><div class="sub">Candy Store & Last Minute — click a scenario to view its mini BDD</div></div>
@@ -1040,4 +1047,78 @@ manualFilter.addEventListener('click',()=>{
 });
 document.querySelectorAll('.case-toggle').forEach(btn=>btn.addEventListener('click',()=>{const c=btn.closest('.case'),open=c.classList.toggle('open');btn.setAttribute('aria-expanded',open)}));
 search.addEventListener('input',filter);
+
+// --- MOTOR DE RESULTADOS POR PAÍS ---
+const testResults = {
+  pe: {
+    name: "Peru",
+    flag: "https://flagcdn.com/w20/pe.png",
+    passed: [
+      "Validate cinema selector cannot be dismissed without selecting a cinema",
+      "Validate purchase candy as authenticated user",
+      "Validate persisted cinema and get-candy request after reload",
+      "Validate navigation through all Candy Store categories",
+      "Validate if hamburger Menu is redirecting to all categories",
+      "Validate direct URL opens the correct Candy category",
+      "Validate each API category maps to one Candy content section",
+      "Validate scrolling keeps Candy category state synchronized",
+      "Validate complete Candy catalog contract against frontend",
+      "Validate product images in catalog and cart summary",
+      "Validate add item to cart and proceed to checkout",
+      "Validate added candy item highlights the product image",
+      "Validate repeated product stays synchronized across Candy categories",
+      "Validate product highlights update when multiple items are removed",
+      "Validate resumen drawer displays all the informations correctly",
+      "Validate checkout button displays correct total sum (Item + Service Fee)",
+      "Validate candy total remains consistent from cart summary to checkout",
+      "Validate candy total after removing one item before checkout",
+      "Validate double click on add product does not duplicate item",
+      "Validate rapid increase and decrease clicks keep cart synchronized",
+      "Validate increasing item quantity updates total price",
+      "Validate decreasing item quantity updates total price",
+      "Validate cart total after removing and re-adding candy item twice",
+      "Validate item quantity counter increments accurately - increase and decrease",
+      "Validate cart and summary persist after page reload",
+      "Validate per-item maximum quantity limit - 10 units",
+      "Validate global cart limit with 10 different products",
+      "Validate global cart limit - 10 items total",
+      "Validate 'See More' functionality for products",
+      "Validate browser back opens purchase cancellation modal",
+      "Validate order cancellation workflow",
+      "Validate purchase interruption when removing all items from cart",
+      "Validate if main banner is visible",
+      "Validate if 'Cine para Retiro' functionality updates the cinema correctly",
+      "Validate voucher input", 
+      "Validate voucher code input normalization and length restrictions"
+    ]
+  }
+};
+
+// Aplica as marcações de forma automática
+document.querySelectorAll('.case').forEach(caseEl => {
+  const title = caseEl.querySelector('p').textContent.trim().toLowerCase();
+  let badgesHtml = '';
+  
+  for (const [countryCode, data] of Object.entries(testResults)) {
+    const isPassed = data.passed.some(testName => title.includes(testName.toLowerCase()));
+    if (isPassed) {
+      badgesHtml += `<span class="c-badge passed" title="Passed in ${data.name}"><img src="${data.flag}" alt="${countryCode}"> Pass</span>`;
+    }
+  }
+
+  if (badgesHtml) {
+    const badgeContainer = document.createElement('div');
+    badgeContainer.className = 'country-badges';
+    badgeContainer.innerHTML = badgesHtml;
+    
+    const btn = caseEl.querySelector('.case-toggle');
+    const autoTag = btn.querySelector('.auto-tag');
+    if (autoTag) {
+      btn.insertBefore(badgeContainer, autoTag);
+    } else {
+      const chev = btn.querySelector('.chev');
+      btn.insertBefore(badgeContainer, chev);
+    }
+  }
+});
 </script></body></html>
