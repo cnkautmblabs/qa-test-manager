@@ -362,9 +362,9 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 <div><b>When</b> the user opens and interacts with the product configuration</div>
 <div><b>Then</b> required options and cart state should be handled correctly</div>
 </div></article>
-<article class="case" data-text="validate add two itens with differente required options" data-automated="true">
+<article class="case" data-text="validate adding two units of the same item with different required options" data-automated="true">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">36</span><p>Validate add two itens with differente required options</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
+<span class="num">36</span><p>Validate adding two units of the same item with different required options</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> a configurable Candy product is available</div>
@@ -1115,7 +1115,7 @@ const testResults = {
       "Validate combo item with multiple required options",
       "Validate add item with required options to cart",
       "Validate replacing cart item updates required option selection",
-      "Validate add two itens with differente required options"
+      "Validate adding two units of the same item with different required options"
     ]
   },
   cl: {
@@ -1156,7 +1156,16 @@ const testResults = {
       "Validate purchase interruption when removing all items from cart",
       "Validate if main banner is visible",
       "Validate if 'Cine para Retiro' functionality updates the cinema correctly",
-      "Validate voucher input field requirements"
+      "Validate voucher input field requirements",
+      
+      // Os 7 testes extras do Chile
+      "Validate purchase candy as guest user",
+      "Validate required options to product",
+      "Validate canceling product configuration keeps cart unchanged",
+      "Validate combo item with multiple required options",
+      "Validate add item with required options to cart",
+      "Validate replacing cart item updates required option selection",
+      "Validate adding two units of the same item with different required options"
     ]
   }
 };
