@@ -43,14 +43,15 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 @media(max-width:760px){.grid{grid-template-columns:1fr} .bdd{padding-left:18px}}
 </style></head><body><div class="wrap">
 <div class="hero"><div><h1>QA Test Coverage</h1><div class="sub">Candy Store & Last Minute — click a scenario to view its mini BDD</div></div>
-<div class="stats"><div class="stat"><b>63</b><span>Get Candy V2</span></div><div class="stat"><b>43</b><span>Last Minute</span></div><div class="stat"><b>106</b><span>Total Scenarios</span></div></div></div>
+<div class="stats"><div class="stat"><b>63</b><span>Get Candy V2</span></div><div class="stat"><b>42</b><span>Last Minute</span></div><div class="stat"><b>105</b><span>Total Scenarios</span></div></div></div>
 <div class="tabs"><button class="tab-btn active" data-tab="get-candy">Get Candy V2</button><button class="tab-btn" data-tab="last-minute">Last Minute</button></div>
 <input id="search" class="search" placeholder="Search in Get Candy V2...">
 <div class="filter-row">
 <button id="autoFilter" class="auto-filter" type="button" aria-pressed="false"><span class="filter-a">A</span><span>Automated</span></button>
 <button id="manualFilter" class="manual-filter" type="button" aria-pressed="false"><span class="filter-m">M</span><span>Manual</span></button>
 </div>
-<section id="get-candy" class="tab-panel active"><div class="section-head"><h2>Get Candy V2</h2><div class="count">63 scenarios</div></div><div class="grid"><article class="case" data-text="validate cinema selector cannot be dismissed without selecting a cinema" data-automated="true">
+<section id="get-candy" class="tab-panel active"><div class="section-head"><h2>Get Candy V2</h2><div class="count">63 scenarios</div></div><div class="grid">
+<article class="case" data-text="validate cinema selector cannot be dismissed without selecting a cinema" data-automated="true">
 <button class="case-toggle" type="button" aria-expanded="false">
 <span class="num">01</span><p>Validate cinema selector cannot be dismissed without selecting a cinema</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
@@ -617,7 +618,8 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 <div><b>When</b> the user applies or interacts with the voucher</div>
 <div><b>Then</b> the voucher, cart, Resumen, and totals should behave as expected</div>
 </div></article></div><div class="empty">No scenarios found in Get Candy V2.</div></section>
-<section id="last-minute" class="tab-panel"><div class="section-head"><h2>Last Minute</h2><div class="count">43 scenarios</div></div><div class="grid"><article class="case" data-text="validate checkout-promotions contract and last minute products" data-automated="true">
+<section id="last-minute" class="tab-panel"><div class="section-head"><h2>Last Minute</h2><div class="count">42 scenarios</div></div><div class="grid">
+<article class="case" data-text="validate checkout-promotions contract and last minute products" data-automated="true">
 <button class="case-toggle" type="button" aria-expanded="false">
 <span class="num">01</span><p>Validate checkout-promotions contract and Last Minute products</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
@@ -878,18 +880,18 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 <div><b>When</b> the user performs the Last Minute scenario action</div>
 <div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
 </div></article>
-<article class="case" data-text="validate restoring the last minute counter after an order-candy failure">
+<article class="case" data-text="validate restoring the last minute counter after an order-candy failure" data-automated="true">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">30</span><p>Validate restoring the Last Minute counter after an order-candy failure</p><span class="chev">⌄</span>
+<span class="num">30</span><p>Validate restoring the Last Minute counter after an order-candy failure</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
 <div><b>When</b> the user performs the Last Minute scenario action</div>
 <div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
 </div></article>
-<article class="case" data-text="validate handling a checkout-promotions api error without blocking checkout">
+<article class="case" data-text="validate handling a checkout-promotions api error without blocking checkout" data-automated="true">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">31</span><p>Validate handling a checkout-promotions API error without blocking checkout</p><span class="chev">⌄</span>
+<span class="num">31</span><p>Validate handling a checkout-promotions API error without blocking checkout</p><span class="auto-tag" title="Automated" aria-label="Automated">A</span><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the relevant backend request is intercepted</div>
@@ -905,18 +907,9 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 <div><b>When</b> the user performs the scenario action</div>
 <div><b>Then</b> the expected Candy Store behavior should be displayed</div>
 </div></article>
-<article class="case" data-text="validate displaying only four last minute products when checkout-promotions returns more than four eligible items">
-<button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">33</span><p>Validate displaying only four Last Minute products when checkout-promotions returns more than four eligible items</p><span class="chev">⌄</span>
-</button>
-<div class="bdd">
-<div><b>Given</b> the user is on checkout with Last Minute offers available</div>
-<div><b>When</b> the user performs the Last Minute scenario action</div>
-<div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
-</div></article>
 <article class="case" data-text="validate cancelling the configuration drawer without adding the last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">34</span><p>Validate cancelling the configuration drawer without adding the Last Minute product</p><span class="chev">⌄</span>
+<span class="num">33</span><p>Validate cancelling the configuration drawer without adding the Last Minute product</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -925,7 +918,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate requiring all mandatory configuration options before adding a last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">35</span><p>Validate requiring all mandatory configuration options before adding a Last Minute product</p><span class="chev">⌄</span>
+<span class="num">34</span><p>Validate requiring all mandatory configuration options before adding a Last Minute product</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -934,7 +927,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate preserving last minute products after reopening the checkout page">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">36</span><p>Validate preserving Last Minute products after reopening the checkout page</p><span class="chev">⌄</span>
+<span class="num">35</span><p>Validate preserving Last Minute products after reopening the checkout page</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -943,7 +936,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate including last minute products in the final purchase request">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">37</span><p>Validate including Last Minute products in the final purchase request</p><span class="chev">⌄</span>
+<span class="num">36</span><p>Validate including Last Minute products in the final purchase request</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -952,7 +945,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate displaying a last minute offer when the cart contains a voucher item">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">38</span><p>Validate displaying a Last Minute offer when the cart contains a voucher item</p><span class="chev">⌄</span>
+<span class="num">37</span><p>Validate displaying a Last Minute offer when the cart contains a voucher item</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -961,7 +954,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate adding a last minute product when the cart contains a voucher item">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">39</span><p>Validate adding a Last Minute product when the cart contains a voucher item</p><span class="chev">⌄</span>
+<span class="num">38</span><p>Validate adding a Last Minute product when the cart contains a voucher item</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -970,7 +963,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate last minute values and calculations with a movie ticket, a voucher item, and a last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">40</span><p>Validate Last Minute values and calculations with a movie ticket, a voucher item, and a Last Minute product</p><span class="chev">⌄</span>
+<span class="num">39</span><p>Validate Last Minute values and calculations with a movie ticket, a voucher item, and a Last Minute product</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -979,7 +972,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate last minute values and calculations with a voucher item and a last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">41</span><p>Validate Last Minute values and calculations with a voucher item and a Last Minute product</p><span class="chev">⌄</span>
+<span class="num">40</span><p>Validate Last Minute values and calculations with a voucher item and a Last Minute product</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -988,7 +981,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate keeping the voucher item in the cart after removing only the last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">42</span><p>Validate keeping the voucher item in the cart after removing only the Last Minute product</p><span class="chev">⌄</span>
+<span class="num">41</span><p>Validate keeping the voucher item in the cart after removing only the Last Minute product</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -997,7 +990,7 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 </div></article>
 <article class="case" data-text="validate resumen drawer values with a movie ticket, a voucher item, and a last minute product">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">43</span><p>Validate Resumen drawer values with a movie ticket, a voucher item, and a Last Minute product</p><span class="chev">⌄</span>
+<span class="num">42</span><p>Validate Resumen drawer values with a movie ticket, a voucher item, and a Last Minute product</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -1109,8 +1102,11 @@ const testResults = {
       "Validate adding, updating and removing a Last Minute product from the cart",
       "Validate the maximum quantity returned for a Last Minute product",
       "Validate the ten-product limit for the Last Minute cart",
+      "Validate restoring the Last Minute counter after an order-candy failure",
+      "Validate handling a checkout-promotions API error without blocking checkout",
       
       // Last Minute - Manual
+      "Validate preserving Last Minute products after reopening the checkout page",
       "Validate displaying a Last Minute offer together with an existing candy item",
       "Validate showing a beverage Last Minute offer when the cart contains no beverage",
       "Validate displaying a Last Minute offer for a product already in the cart",
@@ -1134,9 +1130,10 @@ const testResults = {
       "Validate replacing cart item updates required option selection",
       "Validate adding two units of the same item with different required options",
       
-      // Last Minute - Automated N/A
+      // Last Minute - N/A
       "Validate displaying the Last Minute component for a guest user",
-      "Validate configurable Last Minute offer confirmation"
+      "Validate configurable Last Minute offer confirmation",
+      "Validate requiring all mandatory configuration options before adding a Last Minute product"
     ]
   },
   cl: {
