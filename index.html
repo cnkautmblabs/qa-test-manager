@@ -934,9 +934,9 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1;margin:0 0 10px} .sub,.count,foo
 <div><b>When</b> the user performs the Last Minute scenario action</div>
 <div><b>Then</b> the Last Minute offer, cart, and totals should behave as expected</div>
 </div></article>
-<article class="case" data-text="validate including last minute products in the final purchase request">
+<article class="case" data-text="validate including last minute products in the checkout order state before payment">
 <button class="case-toggle" type="button" aria-expanded="false">
-<span class="num">36</span><p>Validate including Last Minute products in the final purchase request</p><span class="chev">⌄</span>
+<span class="num">36</span><p>Validate including Last Minute products in the checkout order state before payment</p><span class="chev">⌄</span>
 </button>
 <div class="bdd">
 <div><b>Given</b> the user is on checkout with Last Minute offers available</div>
@@ -1120,7 +1120,8 @@ const testResults = {
       "Validate charging the concessions service fee only once for multiple Last Minute products",
       "Validate keeping the concessions service fee when a regular candy item remains in the cart",
       "Validate preventing duplicate Last Minute additions during consecutive clicks",
-      "Validate cancelling the configuration drawer without adding the Last Minute product"
+      "Validate cancelling the configuration drawer without adding the Last Minute product",
+      "Validate including Last Minute products in the checkout order state before payment"
     ],
     na: [
       "Validate purchase candy as guest user",
